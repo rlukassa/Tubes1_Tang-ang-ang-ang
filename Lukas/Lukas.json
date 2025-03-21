@@ -1,0 +1,14 @@
+{
+  "name": "Doremifasollasiuuu",
+  "version": "1.0",
+  "authors": [
+    "Lukas Raja Agripa"
+  ],
+  "description": "Mengutamakan pada menembak musuh dengan peluru yang lebih banyak serta posisi musuh yang sekiranya mudah terkena peluru agar energi musuh cepat habis dan energi bot bertambah",
+  "homepage": "",
+  "countryCodes": [
+    "id"
+  ],
+  "platform": ".Net 6.0",
+  "programmingLang": "C# 10.0"
+}
