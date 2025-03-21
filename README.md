@@ -34,7 +34,7 @@ Pastikan Anda memiliki:
 
 ### 2️⃣ **Clone Repository**  
 ```sh
-git clone <URL-REPO>
+git clone https://github.com/rlukassa/Tubes1_Tang-ang-ang-ang
 cd tubes1-if2211-starter-pack-1.0
 ```
 
