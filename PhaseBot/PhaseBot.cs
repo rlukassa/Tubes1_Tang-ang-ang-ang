@@ -6,22 +6,20 @@ using Robocode.TankRoyale.BotApi.Events;
 public class PhaseBot : Bot
 {
     private bool movingForward;
-    private double enemyDistance;
     private double currentEnemyX = 0;
     private double currentEnemyY = 0;
 
-    private int previousTurnNumber;
-    private double previousCurrentEnemyX;
-    private double previousCurrentEnemyY;
-
-    int corner = RandomCorner();
+    private int corner;
 
     static void Main(string[] args)
     {
         new PhaseBot().Start();
     }
 
-    PhaseBot() : base(BotInfo.FromFile("PhaseBot.json")) { }
+    PhaseBot() : base(BotInfo.FromFile("PhaseBot.json"))
+    {
+        corner = RandomCorner(); // Inisialisasi corner di constructor
+    }
 
     public override void Run()
     {
@@ -36,9 +34,8 @@ public class PhaseBot : Bot
         while (IsRunning)
         {
             CheckEnergyAndSwitchPhase(); // Periksa energi dan tentukan fase
-            Forward(100);
-            Back(100);
-            TurnGunRight(360);
+            MoveToSafeZone(); // Bergerak ke zona aman
+            TurnGunRight(360); // Selalu scanning
         }
     }
 
@@ -49,7 +46,7 @@ public class PhaseBot : Bot
         {
             AttackPhase();
         }
-        else if (Energy < 75 && Energy >= 40)
+        else if (Energy < 75 && Energy >= 25)
         {
             DefensivePhase();
         }
@@ -58,7 +55,6 @@ public class PhaseBot : Bot
             NothingToLosePhase();
         }
     }
-
 
     // Attack Phase: Fokus menyerang musuh
     private void AttackPhase()
@@ -72,7 +68,7 @@ public class PhaseBot : Bot
     {
         TurnGunRight(360);
 
-        if (enemyDistance > 0)
+        if (currentEnemyX != 0 && currentEnemyY != 0) // Pastikan ada data musuh
         {
             double bearingFromBot = BearingTo(currentEnemyX, currentEnemyY);
             double moveDirection = NormalizeRelativeAngle(bearingFromBot + 180);
@@ -92,47 +88,16 @@ public class PhaseBot : Bot
     // Saat mendeteksi musuh
     public override void OnScannedBot(ScannedBotEvent e)
     {
-
         currentEnemyX = e.X;
         currentEnemyY = e.Y;
-        int currentTurnNumber = TurnNumber;
+        var bearingFromGun = GunBearingTo(e.X, e.Y);
+        TurnGunLeft(bearingFromGun);
 
-        if (previousTurnNumber > 0)
-        {
-            double deltaTime = currentTurnNumber - previousTurnNumber;
-            double velocityX = (currentEnemyX - previousCurrentEnemyX) / deltaTime;
-            double velocityY = (currentEnemyY - previousCurrentEnemyY) / deltaTime;
-            enemyDistance = DistanceTo(e.X, e.Y);
+        if (Math.Abs(bearingFromGun) <= 3 && GunHeat == 0)
+            Fire(Math.Min(3 - Math.Abs(bearingFromGun), Energy - .1));
 
-            double bulletSpeed = CalcBulletSpeed(3);
-
-            double timeToTarget = enemyDistance / bulletSpeed;
-            double futureX = currentEnemyX + velocityX * timeToTarget;
-            double futureY = currentEnemyY + velocityY * timeToTarget;
-
-            double gunBearing = GunBearingTo(futureX, futureY);
-            GunTurnRate = gunBearing;
-
-            Fire(3);
-
-            if (enemyDistance <= 200)
-            {
-                Fire(3);
-            }
-            else if (enemyDistance <= 400)
-            {
-                Fire(2);
-            }
-            else
-            {
-                Fire(1);
-            }
-        }
-
-        previousCurrentEnemyX = currentEnemyX;
-        previousCurrentEnemyY = currentEnemyY;
-        previousTurnNumber = currentTurnNumber;
-
+        if (bearingFromGun == 0)
+            Rescan();
     }
 
     public override void OnHitWall(HitWallEvent e)
@@ -142,7 +107,6 @@ public class PhaseBot : Bot
         TurnLeft(90);
         TurnGunRight(360);
     }
-
 
     // Balik arah
     private void ReverseDirection()
@@ -158,4 +122,26 @@ public class PhaseBot : Bot
             movingForward = true;
         }
     }
-};
+
+    // Bergerak ke zona aman
+    private void MoveToSafeZone()
+    {
+        if (Energy < 40)
+        {
+            double safeX = ArenaWidth / 4 + (corner % 2) * ArenaWidth / 2;
+            double safeY = ArenaHeight / 4 + (corner / 2) * ArenaHeight / 2;
+
+            double bearingToSafeZone = BearingTo(safeX, safeY);
+            double moveDirection = NormalizeRelativeAngle(bearingToSafeZone - Direction);
+
+            TurnLeft(moveDirection);
+            Forward(100);
+        }
+    }
+
+    // Menghasilkan sudut acak untuk zona aman
+    public int RandomCorner()
+    {
+        return new Random().Next(4);
+    }
+}
