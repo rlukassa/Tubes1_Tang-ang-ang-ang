@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OTxY4VZZdEI=",
+  "dgSpecHash": "FaoubcKajMU=",
   "success": true,
-  "projectFilePath": "D:\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\PhaseBot\\PhaseBot.csproj",
+  "projectFilePath": "D:\\tubes1-if2211-starter-pack-1.0\\MyBot\\PhaseBot\\PhaseBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

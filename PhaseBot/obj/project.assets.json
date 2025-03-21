@@ -822,11 +822,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\PhaseBot\\PhaseBot.csproj",
+      "projectUniqueName": "D:\\tubes1-if2211-starter-pack-1.0\\MyBot\\PhaseBot\\PhaseBot.csproj",
       "projectName": "PhaseBot",
-      "projectPath": "D:\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\PhaseBot\\PhaseBot.csproj",
+      "projectPath": "D:\\tubes1-if2211-starter-pack-1.0\\MyBot\\PhaseBot\\PhaseBot.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "D:\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\PhaseBot\\obj\\",
+      "outputPath": "D:\\tubes1-if2211-starter-pack-1.0\\MyBot\\PhaseBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"

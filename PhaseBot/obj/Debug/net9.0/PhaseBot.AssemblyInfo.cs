@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PhaseBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb672e0d2b67c457378882b151215a1c1130015d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PhaseBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PhaseBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
