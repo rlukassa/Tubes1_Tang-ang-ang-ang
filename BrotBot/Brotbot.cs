@@ -41,19 +41,25 @@ public class BrotBot : Bot
         double scannedDistance = DistanceTo(e.X, e.Y);
         if (scannedDistance < 100)
         {
-            // Target dekat, langsung serang
             double bearingFromGun = GunBearingTo(e.X, e.Y);
-            TurnGunRight(bearingFromGun);
+            TurnGunLeft(bearingFromGun);
         
-            // Sesuaikan firepower berdasarkan jarak
-            double firepower = scannedDistance < 50 ? 3 : 2;
+            double firepower = scannedDistance < 100 ? 3 : 2;
             Fire(firepower);
+        }
+
+        if (e.Energy <= 0)
+        {
+            enemyBots.Remove(e.ScannedBotId);
         }
         else
         {
-            AttackLowestEnergy();
+            enemyBots[e.ScannedBotId] = (e.X, e.Y, e.Energy);
         }
-    }
+
+        AttackLowestEnergy();
+
+        }
 
     private void AttackLowestEnergy()
     {
@@ -110,7 +116,6 @@ public class BrotBot : Bot
         var direction = DirectionTo(e.X, e.Y);
         var gunBearing = NormalizeRelativeAngle(direction - GunDirection);
         
-
         TurnGunLeft(gunBearing);
         Fire(2);
         Forward(200);
