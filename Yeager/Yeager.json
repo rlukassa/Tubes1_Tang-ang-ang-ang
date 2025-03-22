@@ -1,0 +1,16 @@
+{
+    "name": "Yegaer",
+    "version": "1.0",
+    "authors": [
+      "Rizain"
+    ],
+    "description": "Bot with 3 phases with a greedy closure.",
+    "homepage": "",
+    "countryCodes": [
+      "us",
+      "dk"
+    ],
+    "platform": ".Net 9.0",
+    "programmingLang": "C# 10.0"
+  }
+  
