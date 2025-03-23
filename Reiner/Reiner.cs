@@ -4,6 +4,16 @@ using Robocode.TankRoyale.BotApi;
 using System.Collections.Generic;
 using Robocode.TankRoyale.BotApi.Events;
 
+// ------------------------------------------------------------------
+// Bot Reiner -- Made by Rafa 
+// ------------------------------------------------------------------
+// Penjelasan : 
+// Bot ini menerapkan algoritma greedy dalam menyerang. Dalam menyerang, bot akan mencari musuh yang memiliki energi terendah dan menjadikannya sebagai target.
+// Hal ini karena akan lebih mudah untuk mengalahkan bot dengan energi terendah dan akan mengurangi jumlah bot musuh yang ada. 
+// Jika terdapat bot dengan jumlah energi terendah yang sama bot akan menghitung jarak menuju bot musuh tersebut maka bot musuh dengan jarak akan terpilih menjadi target. 
+// Dalam pergerakan, bot akan bergerak maju dan mundur dan memindai area permainan, jika bot mendeteksi musuh bot akan menyesuaikan arah tembakan dan menyerang sesuai strategi greedy.
+// ------------------------------------------------------------------
+
 public class Reiner : Bot
 {
     private Dictionary<int, (double x, double y, double energy)> enemyBots = new();
@@ -18,7 +28,7 @@ public class Reiner : Bot
 
     public override void Run()
     {
-        BodyColor = Color.Black;
+        BodyColor = Color.Red;
         GunColor = Color.White;
         RadarColor = Color.White;
         ScanColor = Color.Yellow;
@@ -27,25 +37,26 @@ public class Reiner : Bot
 
         while (IsRunning)
         {
-            TurnGunRight(360); 
-            if (movingForward)
+            TurnGunRight(360);  
+            if (movingForward){
                 Forward(100);
-            else
+            }else{
                 Back(100);
+            }
         }
     }
 
     public override void OnScannedBot(ScannedBotEvent e)
     {
         enemyBots[e.ScannedBotId] = (e.X, e.Y, e.Energy);
+
         double scannedDistance = DistanceTo(e.X, e.Y);
         if (scannedDistance < 100)
         {
             double bearingFromGun = GunBearingTo(e.X, e.Y);
             TurnGunLeft(bearingFromGun);
         
-            double firepower = scannedDistance < 100 ? 3 : 2;
-            Fire(firepower);
+            Fire(2);
         }
 
         if (e.Energy <= 0)
@@ -58,12 +69,10 @@ public class Reiner : Bot
         }
 
         AttackLowestEnergy();
-
-        }
+    }
 
     private void AttackLowestEnergy()
     {
-        if (enemyBots.Count == 0) return;
 
         var target = GetLowestEnergy();
 
