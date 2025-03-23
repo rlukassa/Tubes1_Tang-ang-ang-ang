@@ -42,11 +42,11 @@ public class Yeager : Bot
     // Periksa energi dan tentukan fase
     private void CheckEnergyAndSwitchPhase()
     {
-        if (Energy >= 80)
+        if (Energy >= 60)
         {
             AttackPhase();
         }
-        else if (Energy < 75 && Energy >= 25)
+        else if (Energy < 60 && Energy >= 25)
         {
             DefensivePhase();
         }
