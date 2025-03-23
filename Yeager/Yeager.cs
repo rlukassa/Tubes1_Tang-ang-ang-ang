@@ -50,7 +50,7 @@ public class Yeager : Bot
         {
             DefensivePhase();
         }
-        else
+        else if (Energy < 25 && Energy > 0)
         {
             NothingToLosePhase();
         }
