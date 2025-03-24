@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Yeager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1c68ce299cc82f91c693dd671f6b6e8276cd45e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+170e2caa39baf2d388c3c5ad632fc552ed0bd49a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Yeager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Yeager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

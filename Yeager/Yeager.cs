@@ -3,6 +3,21 @@ using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
+// ------------------------------------------------------------------
+// Bot Yeager -- Made by Rizain 
+// ------------------------------------------------------------------
+// Penjelasan : 
+// Bot Yeager menerapkan strategi greedy berbasis energi yang berarti pengambilan 
+// keputusan bot ini didasarkan pada energy level dari sang bot itu sendiri. 
+// Implementasi ini digunakan dengan cara membagikan tindakan bot menjadi 3 fase 
+// yakni AttackPhase (fase menyerang), DefensivePhase (fase defensif), dan NothingToLosePhase 
+// (fase tanpa ada pertimbangan lebih lanjut). Masing-masing fase memiliki metodenya sendiri, 
+// dari segi pertimbangan energi sendiri bot akan melaksanakan AttackPhase ketika energy 
+// level berada pada angka di atas sama dengan 60, DefensivePhase dilaksanakan ketika energy 
+// level berada pada angka di bawah 60 dan di atas sama dengan 25, lalu apabila energy level 
+// berada di bawah 25 maka bot akan memasuki fase NothingToLosePhase.
+// ------------------------------------------------------------------
+
 public class Yeager : Bot
 {
     private bool movingForward;
