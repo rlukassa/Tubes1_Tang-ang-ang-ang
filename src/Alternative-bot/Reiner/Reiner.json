@@ -1,0 +1,11 @@
+{
+    "name": "Reiner",
+    "version": "1.0",
+    "authors": [ " Rafa Abdussalam D"],
+    "description": "Bot ini akan mencari bot dengan energy terendah dan akan menyerangnya",
+    "homepage": "",
+    "countryCodes": [ "ID" ],
+    "platform": ".Net 8.0",
+    "programmingLang": "C# 10.0"
+  }
+  

@@ -29,7 +29,10 @@ Robocode adalah permainan pemrograman di mana pemain **menulis kode untuk bot ta
 ## 🛠 **Cara Menjalankan Bot**  
 
 ### 1️⃣ **Persiapan Awal**  
-Pastikan Anda memiliki:  
+Pastikan Anda memiliki: 
+
+- ✅ **.NET 9.0+** (Cek dengan `dotnet --version`)
+- ✅ **Keseluruhan file program Robocode Tank Royale** (Download di `https://robocode.sourceforge.io/`)
 - ✅ **.NET 6.0+** (Cek dengan `dotnet --version`)  
 
 ### 2️⃣ **Clone Repository**  
