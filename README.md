@@ -30,12 +30,13 @@ Robocode adalah permainan pemrograman di mana pemain **menulis kode untuk bot ta
 
 ### 1️⃣ **Persiapan Awal**  
 Pastikan Anda memiliki:  
-- ✅ **.NET 6.0+** (Cek dengan `dotnet --version`)  
+- ✅ **.NET 6.0+** (Cek dengan `dotnet --version`)
+- ✅ **Keseluruhan file program Robocode Tank Royale** (Download di `https://robocode.sourceforge.io/`)
 
 ### 2️⃣ **Clone Repository**  
 ```sh
-git clone <URL-REPO>
-cd Robocode-Tank-Royale-Bot
+git clone https://github.com/rlukassa/Tubes1_Tang-ang-ang-ang
+cd tubes1-if2211-starter-pack-1.0
 ```
 
 ### 3️⃣ **Jalankan Game Engine**  
@@ -45,7 +46,8 @@ cd Robocode-Tank-Royale-Bot
 
 ### 4️⃣ **Jalankan Bot**  
 ```sh
-dotnet run --project <NAMA_BOT_UTAMA>
+dotnet build
+dotnet run 
 ```
 
 Bot akan terhubung ke game engine dan siap bertempur! 🚀  
@@ -67,7 +69,10 @@ Bot akan terhubung ke game engine dan siap bertempur! 🚀
 ---
 
 ## 🖼 **Tampilan Bot dalam Permainan**  
-![Gameplay Screenshot](https://via.placeholder.com/800x400?text=Screenshot+Gameplay)  
+![Gambar 1 : Homepage ](https://github.com/user-attachments/assets/90099012-d710-4ce6-a364-16eebf2426a4)
+![Gambar 2 : Setup Bots ](https://github.com/user-attachments/assets/d35faf56-ddfe-4e4f-af45-2f8e223f90f6)
+![Gambar 3 : Gameplay ](https://github.com/user-attachments/assets/34fdb240-2261-40e9-9004-4c805c5c6a5f)
+![Gambar 4 : Endgame](https://github.com/user-attachments/assets/f3a7a518-63a6-4682-a909-6c45c8b00edf)
 
 ---
 
